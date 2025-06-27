@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import UserRegisterView
 
 urlpatterns = [
-    # tus rutas aquí, pero NO admin.site.urls
+    path('register/', UserRegisterView.as_view(), name='user-register'),
 ]
