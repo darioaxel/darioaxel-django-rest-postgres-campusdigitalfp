@@ -15,7 +15,7 @@ services:
       - .env
 
   web:
-    build: .
+    build: .    
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
@@ -25,6 +25,9 @@ services:
       - db
     env_file:
       - .env
+    # Configuración para ejecutar migraciones en cada inicio
+    entrypoint: /entrypoint.sh
+
 
 volumes:
   postgres_data:
